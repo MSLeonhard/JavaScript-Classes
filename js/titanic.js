@@ -16,7 +16,7 @@ function splitString (string, select1, select2) {
 
 //console.log(passengers)
 
-console.log(splitString(titanicStr, '\n', ','))
+// console.log(splitString(titanicStr, '\n', ','))
 
 class Passenger {
     constructor (survive, pclass, name, sex, age, siblingsSpouses, parentChildren, fare) {
@@ -25,9 +25,16 @@ class Passenger {
         this.name = name;
         this.sex = sex;
         this.age = age;
-        this.siblingsSpouse = siblingsSpouses;
+        this.siblingsSpouses = siblingsSpouses;
         this.parentChildren = parentChildren;
         this.fare = fare
+        }
+        didSurvive(){
+            if (this.survived == 1) {
+                return 'Yes'
+            } else {
+                return 'No'
+            }
     }
 }
 
@@ -42,7 +49,7 @@ function createObjects(arr){
     return output
 }
 
-console.log(createObjects(allPassengers))
+// createObjects(allPassengers)
 
 let passengerObjects = createObjects(allPassengers)
 
@@ -58,9 +65,7 @@ class nameObject {
 
 //Split the name property value into an array.
 
-
 //Take the string at index 0 and assign it to the title property of the name object.
-
 
 //Take the string at index 1 and assign it to the first name property of the name object.
 
@@ -74,14 +79,51 @@ function nameSplit(arrOfObj) {
         let lName = tempArray.join(' ')
         arrOfObj[i].name = new nameObject(handle, fName, lName)
     }
-
     return arrOfObj
 }
 
-console.log(nameSplit(passengerObjects))
-
-// console.log(str.substr(0, str.indexOf(' ')))
-// console.log(str.substr(str.indexOf(' ')+1, str.indexOf(' ')))
-// console.log(str.substr(str.indexOf(' ')+1))
+nameSplit(passengerObjects)
 
 document.createElement
+//for {
+    //create row
+    //insert data in the proper order
+        //name (combined)
+        //sex
+        //age
+        //if they survived
+        //class
+        //siblings/spouses
+        //parents/children
+        //fare
+//}
+
+for (i = 0; i<passengerObjects.length; i++) {
+    let table = document.querySelector('table')
+    let row = document.createElement('tr')
+    let data1 = document.createElement('td')
+    let data2 = document.createElement('td')
+    let data3 = document.createElement('td')
+    let data4 = document.createElement('td')
+    let data5 = document.createElement('td')
+    let data6 = document.createElement('td')
+    let data7 = document.createElement('td')
+    let data8 = document.createElement('td')
+    table.appendChild(row)
+    row.appendChild(data1)
+    row.appendChild(data2)
+    row.appendChild(data3)
+    row.appendChild(data4)
+    row.appendChild(data5)
+    row.appendChild(data6)
+    row.appendChild(data7)
+    row.appendChild(data8)
+    data1.textContent = `${passengerObjects[i].name.title} ${passengerObjects[i].name.firstName} ${passengerObjects[i].name.lastName}`
+    data2.textContent = passengerObjects[i].sex
+    data3.textContent = passengerObjects[i].age
+    data4.textContent = passengerObjects[i].didSurvive()
+    data5.textContent = passengerObjects[i].pclass
+    data6.textContent = passengerObjects[i].siblingsSpouses
+    data7.textContent = passengerObjects[i].parentChildren
+    data8.textContent = passengerObjects[i].fare
+}
