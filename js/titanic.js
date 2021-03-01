@@ -83,3 +83,5 @@ console.log(nameSplit(passengerObjects))
 // console.log(str.substr(0, str.indexOf(' ')))
 // console.log(str.substr(str.indexOf(' ')+1, str.indexOf(' ')))
 // console.log(str.substr(str.indexOf(' ')+1))
+
+document.createElement
